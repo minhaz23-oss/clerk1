@@ -3,9 +3,10 @@ import User from '@/lib/models/user.models';
 import { NextResponse } from 'next/server';
 
 
-connect();
+
 export async function POST(req: any){
     try {
+        await connect();
         const reqBody = await req.json();
         const {name} = reqBody;
         const newUser = new User({
